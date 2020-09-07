@@ -46,7 +46,7 @@ chmod g+s $web_dir
 
 ``` bash
 web_dir=/srv/www
-git clone https://github.com/kassambara/nginx-multiple-https-websites-on-one-server $web_dir
+git clone https://github.com/sergiomaciel/nginx-reverse-proxy $web_dir
 ```
 
 Inside `/nginx-proxy`, there are four empty directories: `conf.d`,
@@ -72,7 +72,7 @@ cd /srv/www/nginx-proxy/
 docker-compose up -d
 ```
 
-## Link a website to the running nginx-proxy
+## Running applications behind the proxy
 
 The `docker-compose.yml` file of the website, you want to link, should
 include the following instructions provided in the template available in
@@ -80,7 +80,7 @@ the folder `website-1.com` (**not** the one from nginx-proxy
 above). The content of the template looks like this:
 
 ``` yaml
-version: '3.6'
+version: '3.0'
 
 services:
   my-app:
@@ -88,9 +88,9 @@ services:
     restart: always
     environment:
       # NGINX-PROXY ENVIRONMENT VARIABLES: UPDATE ME
-      - VIRTUAL_HOST=your-website-one.com 
+      - VIRTUAL_HOST=website-1.com 
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=your-website-one.com 
+      - LETSENCRYPT_HOST=website-1.com 
       - LETSENCRYPT_EMAIL=your.email@domain.com
       # END NGINX-PROXY ENVIRONMENT VARIABLES
     expose:
@@ -122,7 +122,7 @@ Once the update of the `docker-compose.yml` file is done, you can
 **start the website with**:
 
 ``` bash
-cd /srv/www/your-website-one.com
+cd /srv/www/website-1.com
 docker-compose up -d
 ```
 

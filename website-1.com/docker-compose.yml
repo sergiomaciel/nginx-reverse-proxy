@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3'
 
 services:
   my-app:
@@ -17,6 +17,6 @@ services:
       - 80
 
 networks:
-  default:
+  proxy:
     external:
       name: nginx-proxy
