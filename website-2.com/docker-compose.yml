@@ -17,6 +17,6 @@ services:
       - 80
 
 networks:
-  proxy:
+  default:
     external:
       name: nginx-proxy

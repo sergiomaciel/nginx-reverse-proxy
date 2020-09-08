@@ -44,6 +44,6 @@ services:
       NGINX_DOCKER_GEN_CONTAINER: "nginx-gen"
       NGINX_PROXY_CONTAINER: "nginx"
 networks:
-  proxy:
+  default:
     external:
       name: nginx-proxy
