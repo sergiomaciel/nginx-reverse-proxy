@@ -8,10 +8,10 @@ services:
       - "./:/usr/share/nginx/html"
     environment:
       # NGINX-PROXY ENVIRONMENT VARIABLES: UPDATE ME
-      - VIRTUAL_HOST=pedidostdf.com.ar
+      - VIRTUAL_HOST=website-1.com
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=pedidostdf.com.ar
-      - LETSENCRYPT_EMAIL=liderclick.oficial@gmail.com
+      - LETSENCRYPT_HOST=website-1.com
+      - LETSENCRYPT_EMAIL=your.email@domain.com
       # /END NGINX-PROXY ENVIRONMENT VARIABLES
     expose:
       - 80
