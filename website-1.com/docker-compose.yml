@@ -13,8 +13,8 @@ services:
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
       - LETSENCRYPT_EMAIL={LETSENCRYPT_EMAIL}
       # /END NGINX-PROXY ENVIRONMENT VARIABLES
-    ports:
-      - "${VIRTUAL_PORT}:80"
+    expose:
+      - ${VIRTUAL_PORT}
     networks:
       - nginx-proxy
 
