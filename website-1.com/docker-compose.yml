@@ -16,8 +16,11 @@ services:
     expose:
       - 80
     networks:
+      - web-network
       - nginx-proxy
 
 networks:
+  web-network:
+    driver: bridge
   nginx-proxy:
     external: true
